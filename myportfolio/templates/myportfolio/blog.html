@@ -1,0 +1,54 @@
+{% extends "myportfolio/base.html" %} {% load static %} {% block content %}
+<style>
+.blogs{
+        
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:2px;
+}
+{% comment %} .oneblog{
+    background-color:#111010;
+
+
+} {% endcomment %}
+body{
+ background-image: url('https://64.media.tumblr.com/f74d7cc35e3c4ed6fc11f560fe38b2a7/tumblr_inline_ny82m7qGH41ro20i7_500.gifv'); 
+
+}
+h1{
+    color:#9e9a9a;
+    text-decoration: underline;
+}
+h2{
+    color: #a0a09a;
+}
+h4{
+    color:#a8a1a1;
+}
+button{
+    background-color: #3d3d3d;
+    color: #b0abab;
+    border: 1px solid #bc0808;
+}
+</style>
+<body class"body">
+<h1 id="blogtitle" class="font-weight-bold text-center">MyBlogs</h1>
+<div class="blogs">
+{% for blog in blogs %}
+<div class="oneblog">
+  <div class="col-md-10">
+    
+      <center><h2>{{ blog.title }}</h2>
+  
+    <h5 class="text-muted">{{ blog.published_on.date|date:'d M Y'|upper }}</h5>
+</center>
+    <h4>{{ blog.description|striptags|truncatechars:30 }}</h4>
+    <a href="{% url 'myportfolio:detail' blog.id %}">  
+        <button>View</button>
+    </a>
+  </div>
+</div>
+{% endfor %} 
+</div>
+{% endblock content %}
+</body>

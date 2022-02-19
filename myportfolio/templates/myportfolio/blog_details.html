@@ -1,0 +1,46 @@
+{% extends "myportfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    body{
+ background-image: url('https://64.media.tumblr.com/f74d7cc35e3c4ed6fc11f560fe38b2a7/tumblr_inline_ny82m7qGH41ro20i7_500.gifv'); 
+    }
+ h1{
+    color: grey;
+    text-decoration: underline;
+ }
+ .description{
+     color:grey;
+     font-size:19px
+ }
+ .img{
+    width: 250px;
+
+ }
+ a{
+     font-size:20px;
+     color:whitesmoke;
+ }
+    
+</style>
+<a href="{% url 'myportfolio:Blogs' %}">⬅️ back</a>
+<body class="body">
+<h1 class="text-center mt-5" id="blogdetailtitle">{{ blog.title }}</h1>
+
+<h5 class="text-center text-muted mb-5">{{ blog.published_on.date|date:'F jS Y' }}</h5>
+<div class="img1">
+    <center>
+    <img id="blog-image" src={{blog.image}} alt={{ blog.title }} class="img">
+    <center>
+</div>
+
+
+    <center class="description">
+{{ blog.description|safe }}
+    </center>
+
+{% endblock content %}
+</body>

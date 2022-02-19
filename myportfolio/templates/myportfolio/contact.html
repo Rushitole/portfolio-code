@@ -1,0 +1,21 @@
+{% extends "myportfolio/base.html" %}
+{% include  %}
+
+{% block page_content %}
+
+<div>
+
+    <form method="post" actions="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-actions" >
+      <button type="submit">Send</button>
+    </div>
+</form>
+
+    <h3 align="center" > Thanks for connecting with me!!!!</h3>
+    <a href="/myportfolio">Go to home page</a>
+
+</div>
+
+{% endblock %}
